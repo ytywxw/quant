@@ -16,7 +16,7 @@ var body = $response.body
 var json = JSON.parse(body)
 
 if (json["realname"] != ""){
-  body = $response.body.replace(/username":"\S+"/, "username\":\"222\"")
+  body = $response.body.replace(/username":"\S*","realname/g, "username\":\"222\",\"realname")
 }
 
 $done({ body })
