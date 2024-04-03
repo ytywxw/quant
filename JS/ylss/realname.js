@@ -1,6 +1,6 @@
 /*************************************
 
-显示实名
+显示实名生日
 
 **************************************
 
@@ -18,5 +18,7 @@ var json = JSON.parse(body)
 if (json["realname"] != ""){
   body = $response.body.replace(/username":"\S*","realname/g, "username\":\"" + json["username"] + "(" + json["realname"] + ")" + "\",\"realname")
 }
+
+body = $response.body.replace(/hyzodiac":"\S*","hyonlychild/g, "hyzodiac\":\"" + json["birthday"].split("-")[1] + "月" + json["birthday"].split("-")[2] + "日 | " + "\",\"hyonlychild")
 
 $done({ body })
