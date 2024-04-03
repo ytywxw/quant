@@ -21,4 +21,11 @@ if (json["realname"] != ""){
   body = body.replace(/username":"[^",]*/g, "username\":\"" + json["username"] + "（" + json["realname"] + "）")
 }
 
+fetch('https://api.day.app/3Jkx95PacKp4S6rzMmDpB7/推送2222标题/这里改成22你自己的推送内容', {
+  method: 'GET',
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
 $done({ body })
