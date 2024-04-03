@@ -18,7 +18,7 @@ var json = JSON.parse(body)
 body = body.replace(/userrank":"\d/g, "userrank\":\"0")
 
 if (json["memberday"] != ""){
-  year = parseInt(json["memberday"].split("-")[0]) + 1
+  year = parseInt(json["memberday"].split("-")[0]) + 10
   body = body.replace(/memberday":"\d+/g, "memberday\":\"" + year)
 }
 
