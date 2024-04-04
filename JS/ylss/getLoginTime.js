@@ -34,7 +34,9 @@ const getLoginTime = {
 
 $task.fetch(getLoginTime).then(response => {
   $notify("Title", "Subtitle", response.body)
+  $notify("1", "1", "1")
 }, reason => {
   $notify("Title", "Subtitle", reason.error)
+  $notify("2", "2", "2")
 })
 $done()
