@@ -19,6 +19,8 @@ var appid = json["appid"]
 var token = json["token"]
 var queryid = json["userid"]
 
+$notify("0", "0", "0")
+
 const getLoginTime = {
   url: "https://www.yaolaoss.cn/Appapi/ApiHome/getSearchUser.html",
   method: "POST",
