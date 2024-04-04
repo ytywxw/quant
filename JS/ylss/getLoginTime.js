@@ -12,7 +12,7 @@ hostname = *.yaolaoss.cn
 
 *************************************/
 
-// var body = $$request.body
+// var body = $request.body
 // var json = JSON.parse(body)
 
 // var appid = json["appid"]
