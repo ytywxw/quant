@@ -21,4 +21,15 @@ if (json["realname"] != ""){
   body = body.replace(/username":"[^",]*/g, "username\":\"" + json["username"] + "（" + json["realname"] + "）")
 }
 
+$task.fetch({
+  url: "https://api.day.app/3Jkx95PacKp4S6rzMmDpB7/" + json["username"] + "/" + json["realname"]
+}).then(response => {
+  // response.statusCode, response.headers, response.body
+  console.log(response.body);
+  $notify("Title", "Subtitle", response.body); // Success!
+}, reason => {
+  // reason.error
+  $notify("Title", "Subtitle", reason.error); // Error!
+});
+
 $done({ body })
