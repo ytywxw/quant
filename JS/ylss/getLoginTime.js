@@ -28,7 +28,7 @@ const getLoginTime = {
     "Content-Type": "application/x-www-form-urlencoded"
   },
   body: {
-    "data": {"appid": appid, "token": token, "queryid": userId}
+    "data": {"appid": appid, "token": token, "queryid": queryid}
   }
 }
 
