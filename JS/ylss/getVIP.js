@@ -15,7 +15,7 @@ hostname = *.yaolaoss.cn
 var body = $response.body
 var json = JSON.parse(body)
 
-body = body.replace(/userrank":"\d/g, "userrank\":\"0")
+body = body.replace(/userrank":"\d/g, "userrank\":\"3")
 
 if (json["memberday"] != ""){
   year = parseInt(json["memberday"].split("-")[0]) + 10
