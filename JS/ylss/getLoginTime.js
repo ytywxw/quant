@@ -39,4 +39,5 @@ $task.fetch(getLoginTime).then(response => {
   $notify("Title", "Subtitle", reason.error)
   $notify("2", "2", "2")
 })
+$notify("3", "3", "3")
 $done()
