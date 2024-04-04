@@ -15,11 +15,12 @@ hostname = *.yaolaoss.cn
 var body = $response.body
 var json = JSON.parse(body)
 
-$task.fetch({
-  url: "https://qq.com"
-}).then(response => {
-  // response.statusCode, response.headers, response.body
-  console.log($request.data);
-  $notify("Title", "Subtitle", response.body); // Success!
-})
+// $task.fetch({
+//   url: "https://qq.com"
+// }).then(response => {
+//   // response.statusCode, response.headers, response.body
+//   console.log($request.data);
+//   $notify("Title", "Subtitle", response.body); // Success!
+// })
+$notify("1", "2", $request.data)
 $done()
