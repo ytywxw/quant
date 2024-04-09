@@ -22,6 +22,7 @@ for (let index = 0; index < json.length; index++) {
   element = JSON.stringify(element).replace(/CityName":"[^",]*/g, "CityName\":\"" + "lalala") 
   newBody[index] = JSON.parse(element)
 }
+$notify("1", "2", JSON.stringify(newBody))
 body = JSON.stringify(newBody)
 
 $done(body)
