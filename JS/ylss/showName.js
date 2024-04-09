@@ -21,4 +21,4 @@ if (json["realname"] != ""){
   body = body.replace(/username":"[^",]*/g, "username\":\"" + json["username"] + "（" + json["realname"] + "）")
 }
 
-$done({ body })
+$done(body)

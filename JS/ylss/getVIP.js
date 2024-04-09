@@ -22,4 +22,4 @@ if (json["memberday"] != ""){
   body = body.replace(/memberday":"\d+/g, "memberday\":\"" + year)
 }
 
-$done({ body })
+$done(body)

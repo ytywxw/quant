@@ -14,10 +14,12 @@ hostname = *.yaolaoss.cn
 
 var body = $response.body
 var json = JSON.parse(body)
+var newBody = []
 
 for (let index = 0; index < json.length; index++) {
   const element = json[index]
-  body = body.replace(/CityName":"[^",]*/g, "CityName\":\"" + element["Birthday"].split("-")[1] + "月" + element["birthday"].split("-")[2] + "日 · " + element["CityName"])  
+  element = element.replace(/CityName":"[^",]*/g, "CityName\":\"" + element["Birthday"].split("-")[1] + "月" + element["birthday"].split("-")[2] + "日 · " + element["CityName"]) 
+  newBody[index] = element
 }
 
-$done({ body })
+$done(JSON.stringify(newBody))
