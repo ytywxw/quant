@@ -18,8 +18,9 @@ var newBody = []
 
 for (let index = 0; index < json.length; index++) {
   const element = json[index]
-  element = element.replace(/CityName":"[^",]*/g, "CityName\":\"" + element["Birthday"].split("-")[1] + "月" + element["birthday"].split("-")[2] + "日 · " + element["CityName"]) 
+  // element = element.replace(/CityName":"[^",]*/g, "CityName\":\"" + element["Birthday"].split("-")[1] + "月" + element["birthday"].split("-")[2] + "日 · " + element["CityName"]) 
+  element = element.replace(/CityName":"[^",]*/g, "CityName\":\"" + "lalala") 
   newBody[index] = element
 }
 
-$done(newBody)
+$done(JSON.stringify(newBody))
