@@ -22,6 +22,6 @@ var newBody = []
 //   newBody[index] = element
 // }
 
-body = body.replace(/CityName":"[^",]*/g, "hyzodiac\":\"" + "lalala")
+body = body.replace(/CityName":"[^",]*/g, "CityName\":\"" + "lalala")
 
 $done(body)
