@@ -14,7 +14,7 @@ hostname = *.cyapi.cn
 
 var body = $response.body
 var json = JSON.parse(body)
-var expired = (new Date().getTime() + 31536000000) / 1000;
+var expired = Math.floor((new Date().getTime() + 31536000000) / 1000);
 
 body = body.replace(/expires_time":"\d+/g, "expires_time\":\"" + expired)
 
