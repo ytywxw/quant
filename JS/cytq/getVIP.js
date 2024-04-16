@@ -16,6 +16,12 @@ var body = $response.body
 var json = JSON.parse(body)
 var expired = Math.floor((new Date().getTime() + 31536000000) / 1000);
 
-body = body.replace(/svip_expired_at":\d+/g, "expires_time\":" + expired)
+// body = body.replace(/svip_expired_at":\d+/g, "expires_time\":" + expired)
+json["result"]["is_vip"] = true
+json["result"]["vip_type"] = "s"
+json["result"]["svip_given"] = 0
+json["result"]["svip_expired_at"] = expired
+json["result"]["wt"]["svip_expired_at"] = expired
+body = JSON.stringify(json)
 
 $done(body)
