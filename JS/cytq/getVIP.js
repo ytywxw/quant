@@ -24,6 +24,7 @@ const syUrl = /trial_card\/info/;
 const qyUrl = /entries/;
 const peUrl = /privileges/;
 const topUrl = /operation\/homefeatures/;
+var expired = new Date().getTime() + 31536000000;
 
 if (typeof $response == "undefined") {
   newBody.headers = $request.headers;
@@ -41,29 +42,23 @@ if (typeof $response == "undefined") {
       break;
     case vipUrl.test(url):
       body.vip = {  ...body.vip,
-  "expires_time" : "4092599349",  "is_auto_renewal" : true  };
-      body.svip =  {  ...body.svip,  "expires_time" : "4092599349",  "is_auto_renewal" : true  };
+  "expires_time" : expired,  "is_auto_renewal" : true  };
+      body.svip =  {  ...body.svip,  "expires_time" : expired,  "is_auto_renewal" : true  };
       body.show_upcoming_renewal = false;
       break;
     case userUrl.test(url):
-      body.result = { ...body.result,  is_vip: true,  vip_expired_at: 4092599349,  svip_given: 1,  is_xy_vip: true,  xy_svip_expire: 4092599349,  wt: {  ...body.result.wt,  vip: {  ...body.result.wt.vip,  "expired_at" : 0,  "enabled" : true,  "svip_apple_expired_at" : 4092599349,  "is_auto_renewal" : true,  "svip_expired_at" : 4092599349    },    svip_given: 1,  },  is_phone_verified: true,  vip_take_effect: 1,  is_primary: true,  xy_vip_expire: 4092599349,  svip_expired_at: 4092599349,  svip_take_effect: 1,  vip_type: "s",  };
+      body.result = { ...body.result,  is_vip: true,  vip_expired_at: expired,  svip_given: 1,  is_xy_vip: true,  xy_svip_expire: expired,  wt: {  ...body.result.wt,  vip: {  ...body.result.wt.vip,  "expired_at" : 0,  "enabled" : true,  "svip_apple_expired_at" : expired,  "is_auto_renewal" : true,  "svip_expired_at" : expired    },    svip_given: 1,  },  is_phone_verified: true,  vip_take_effect: 1,  is_primary: true,  xy_vip_expire: expired,  svip_expired_at: expired,  svip_take_effect: 1,  vip_type: "s",  };
       break;
     case syUrl.test(url):
       body.receive_status = 0;
       body.vip_type = "svip";
       body.activated_at = 1712600671;
       body.vip_duration = "999";
-      body.expired_at = 4092599349;
+      body.expired_at = expired;
       body.has_valid_card = 0;
-      break;
-    case qyUrl.test(url):
-      body["entries"] = [{  "url" : "https://t.me/body",  "id" : 1,  "name" : "叮当猫",  "type" : 1,  "pos" : 2  }];
       break;
     case peUrl.test(url):
       body["privileges"] = [{  "vip_type" : "svip",  "subscription_chat_quota" : 999  }];
-      break;
-    case topUrl.test(url):
-      body["data"] = [{  "badge_type" : "",  "title" : "叮当猫",  "url" : "https://t.me/body",  "feature_type" : "",  "avatar" : "https://raw.githubusercontent.com/body/Script_X/main/icon/ddm2.png"  },...body.data];
       break;
     }
   newBody.body = JSON.stringify(body);
