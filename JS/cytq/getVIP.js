@@ -24,7 +24,7 @@ const syUrl = /trial_card\/info/;
 const qyUrl = /entries/;
 const peUrl = /privileges/;
 const topUrl = /operation\/homefeatures/;
-var expired = new Date().getTime() + 31536000000;
+var expired = new Date().getTime() + 31536000;
 
 if (typeof $response == "undefined") {
   newBody.headers = $request.headers;
