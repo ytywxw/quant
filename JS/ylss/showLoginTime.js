@@ -50,7 +50,7 @@ const data = {
 
 const myRequest = {
     url: url,
-    method: POST,
+    method: "POST",
     headers: headers,
     body: JSON.stringify(data)
 }
