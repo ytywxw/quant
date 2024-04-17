@@ -55,11 +55,14 @@ const myRequest = {
     body: JSON.stringify(data)
 }
 
+$notify("Title", "Subtitle", 111)
 $task.fetch(myRequest).then(response => {
     console.log(response.body)
-    $notify("Title", "Subtitle", response.body)
+    $notify("Title", "Subtitle", 222)
+    // $notify("Title", "Subtitle", response.body)
     $done()
 }, reason => {
-    $notify("Title", "Subtitle", reason.error)
+    $notify("Title", "Subtitle", 333)
+    // $notify("Title", "Subtitle", reason.error)
     $done()
 })
