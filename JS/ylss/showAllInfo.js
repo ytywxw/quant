@@ -1,6 +1,6 @@
 /*************************************
 
-显示实名生日
+完善详情页信息
 
 **************************************
 
@@ -19,6 +19,11 @@ body = body.replace(/hyzodiac":"[^",]*/g, "hyzodiac\":\"" + json["birthday"].spl
 
 if (json["realname"] != ""){
   body = body.replace(/username":"[^",]*/g, "username\":\"" + json["username"] + "（" + json["realname"] + "）")
+}
+
+if (json["enable"] != "1") {
+  body = body.replace(/username":"[^",]*/g, "username\":\"" + "[已注销]" + json["username"])
+  body = body.replace(/enable":"[^",]*/g, "enable\":\"1")
 }
 
 $done(body)
