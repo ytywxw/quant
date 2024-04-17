@@ -17,13 +17,13 @@ var json = JSON.parse(body)
 
 body = body.replace(/hyzodiac":"[^",]*/g, "hyzodiac\":\"" + json["birthday"].split("-")[1] + "月" + json["birthday"].split("-")[2] + "日 | " + json["hyzodiac"])
 
-if (json["realname"] != ""){
-  body = body.replace(/username":"[^",]*/g, "username\":\"" + json["username"] + "（" + json["realname"] + "）")
-}
-
 if (json["enable"] != "1") {
-  body = body.replace(/username":"[^",]*/g, "username\":\"" + "[已注销]" + json["username"])
+  body = json["realname"] == "" ? body.replace(/username":"[^",]*/g, "username\":\"" + "[已注销]" + json["username"]) : body.replace(/username":"[^",]*/g, "username\":\"" + "[已注销]" + json["username"] + "（" + json["realname"] + "）")
   body = body.replace(/enable":"[^",]*/g, "enable\":\"1")
+} else {
+  if (json["realname"] != ""){
+    body = body.replace(/username":"[^",]*/g, "username\":\"" + json["username"] + "（" + json["realname"] + "）")
+  }
 }
 
 $done(body)
