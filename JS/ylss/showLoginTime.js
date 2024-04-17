@@ -15,8 +15,8 @@ var aes = import("../common/aes.js")
 const apiId = 100003
 const apiKey = "zhapp_oslrifmkdl"
 const apiSecret = "51a683bea5e5c138fd03"
-var body = $response.body
-var json = JSON.parse(body)
+// var body = $response.body
+// var json = JSON.parse(body)
 
 const userId = 144869
 
