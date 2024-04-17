@@ -11,7 +11,7 @@
 hostname = *.yaolaoss.cn
 
 *************************************/
-var aes = require("../common/aes.js")
+var aes = import("../common/aes.js")
 const apiId = 100003
 const apiKey = "zhapp_oslrifmkdl"
 const apiSecret = "51a683bea5e5c138fd03"
