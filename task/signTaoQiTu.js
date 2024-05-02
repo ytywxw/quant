@@ -12,6 +12,7 @@ const myRequest = {
 
 $task.fetch(myRequest).then(response => {
     var data = response.body
+    $console.log(data["total"])
     if (data["total"]) {
         $console.log(111)
         $notify(data["message"], "当前剩余签到流量：" + data["total"])
