@@ -12,8 +12,12 @@ const myRequest = {
 
 $task.fetch(myRequest).then(response => {
     var data = response.body
-    $notify("淘气兔", data["message"])
-    $notify(data["message"])
+    var json = JSON.parse(data)
+    if (json["total"] != undefined) {
+        $notify("淘气兔", json["message"], "当前剩余签到流量：" + json["total"] + "GB")
+    } else {
+        $notify("淘气兔", json["message"])
+    }
     $done()
 }, reason => {
     $notify("淘气兔", "接口请求失败")
