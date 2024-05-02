@@ -16,6 +16,6 @@ $task.fetch(myRequest).then(response => {
     $notify(data["message"])
     $done()
 }, reason => {
-    $notify("接口请求失败！", reason.error)
+    $notify("淘气兔", "接口请求失败")
     $done()
 })
