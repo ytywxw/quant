@@ -11,9 +11,12 @@ const myRequest = {
 }
 
 $task.fetch(myRequest).then(response => {
-    // response.statusCode, response.headers, response.body
-    console.log(response.body);
-    $notify("签到成功！", response.body)
+    var data = response.body
+    if (data["total"]) {
+        $notify(data["message"], "当前剩余签到流量：" + data["total"])
+    } else {
+        $notify(data["message"])
+    }
     $done()
 }, reason => {
     // reason.error
