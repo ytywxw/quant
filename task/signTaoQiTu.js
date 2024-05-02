@@ -13,13 +13,14 @@ const myRequest = {
 $task.fetch(myRequest).then(response => {
     var data = response.body
     if (data["total"]) {
+        $console.log(111)
         $notify(data["message"], "当前剩余签到流量：" + data["total"])
     } else {
+        $console.log(222)
         $notify(data["message"])
     }
     $done()
 }, reason => {
-    // reason.error
     $notify("接口请求失败！", reason.error)
     $done()
 })
