@@ -13,6 +13,7 @@ const myRequest = {
 $task.fetch(myRequest).then(response => {
     var data = response.body
     $notify("淘气兔", data["message"])
+    $notify(data["message"])
     $done()
 }, reason => {
     $notify("接口请求失败！", reason.error)
