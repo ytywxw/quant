@@ -15,7 +15,7 @@ hostname = *.m.taobao.com
 var path = $request.path
 var id = path.match(/(?<=id%22%3A%22)[0-9]+(?=%22)/)
 if (id) {
-  $notify("淘宝", id)
+  $notify("淘宝", id[0])
 } else {
   $notify("淘宝", '未查询到ID')
 }
