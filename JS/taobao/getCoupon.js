@@ -12,7 +12,7 @@ hostname = *.m.taobao.com
 
 *************************************/
 
-var body = $request.body
+var path = $request.path
 // var json = JSON.parse(body)
 
 // body = body.replace(/userrank":"\d/g, "userrank\":\"3")
@@ -22,5 +22,5 @@ var body = $request.body
 //   body = body.replace(/memberday":"\d+/g, "memberday\":\"" + year)
 // }
 
-$notify("淘宝", body)
+$notify("淘宝", path)
 $done()
