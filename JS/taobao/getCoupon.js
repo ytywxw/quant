@@ -13,14 +13,10 @@ hostname = *.m.taobao.com
 *************************************/
 
 var path = $request.path
-// var json = JSON.parse(body)
-
-// body = body.replace(/userrank":"\d/g, "userrank\":\"3")
-
-// if (json["memberday"] != ""){
-//   year = parseInt(json["memberday"].split("-")[0]) + 10
-//   body = body.replace(/memberday":"\d+/g, "memberday\":\"" + year)
-// }
-
-$notify("淘宝", path)
+var id = path.match(/(?<=id%22%3A%22)[0-9]+(?=%22)/)
+if (id) {
+  $notify("淘宝", id)
+} else {
+  $notify("淘宝", '未查询到ID')
+}
 $done()
